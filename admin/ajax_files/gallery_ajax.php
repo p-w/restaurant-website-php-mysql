@@ -1,3 +1,4 @@
+<?php session_start(); if(!isset($_SESSION['username_restaurant_qRewacvAqzA']) || !isset($_SESSION['password_restaurant_qRewacvAqzA'])){ http_response_code(403); exit(); } ?>
 <?php include '../connect.php'; ?>
 <?php include '../Includes/functions/functions.php'; ?>
 
@@ -14,7 +15,7 @@
         $extesnion = end($image_split);
         $image_extension = strtolower($extesnion);
         
-        if(empty($_FILES['image']['name']) || (!empty($_FILES['menu_image']['name']) && !in_array($image_extension,$image_allowed_extension)))
+        if(empty($_FILES['image']['name']) || (!empty($_FILES['image']['name']) && !in_array($image_extension,$image_allowed_extension)))
         {
             echo "<div class = 'alert alert-warning'>";
                 echo "Invalid Image format! Only JPEG, JPG and PNG are accepted.";
